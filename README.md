@@ -2,6 +2,9 @@
 Codes for DISGEN
 
 ## Dependencies
+
+```bash
+
 networkx=3.0
 numpy=1.24.4
 ogb=1.3.6
@@ -16,25 +19,26 @@ torch-scatter=2.1.1+pt20cu118
 torch-sparse=0.6.17+pt20cu118
 torch-spline-conv=1.2.2+pt20cu118
 torchvision=0.15.2+cu118
-
+```
 
 
 
 # Usage
 ## Clone the repository:
 
-git clone https://github.com/yourusername/your-repository-name.git
-cd your-repository-name
+```bash
+git clone https://github.com/GraphmindDartmouth/DISGEN.git
+cd DISGEN/src
+```
 
 
-
-Execute the following scripts to run data augmentation on bbbp data:
+## Execute the following scripts to run data augmentation on bbbp data:
 
 ```bash
 python gnnexp.py
 ```
 
-Execute the following scripts to train on bbbp data:
+## Execute the following scripts to train on bbbp data:
 
 ```bash
 python disentgnn.py
