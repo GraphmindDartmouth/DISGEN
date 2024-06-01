@@ -44,7 +44,7 @@ python gnnexp.py
 python disentgnn.py
 ```
 
-Execute the following scripts to train on other datas (PROTEINS, GraphSST2 and NCI1):
+## Execute the following scripts to train on other datas (PROTEINS, GraphSST2 and NCI1):
 ```bash
 python disentgnn_proteins.py --dataset_name PROTEINS
 ```
