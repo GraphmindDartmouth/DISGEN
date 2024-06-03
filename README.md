@@ -9,7 +9,6 @@ networkx=3.0
 numpy=1.24.4
 ogb=1.3.6
 pandas=2.0.3
-pillow=9.3.0
 scikit-learn=1.3.0
 scipy=1.10.1
 torch=2.0.1+cu118
@@ -32,20 +31,31 @@ cd DISGEN/src
 ```
 
 
-## Execute the following scripts to run data augmentation on bbbp data:
+## Execute the following scripts to run data augmentation on different data:
 
 ```bash
-python gnnexp.py
+python gnnexp.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root}
 ```
+The data augmentation will generate augmented views of the original graph and save them in the dataset_root. 
+{dataset_root} is also the path to save the dataset.
 
-## Execute the following scripts to train on bbbp data:
+The train, validation, small and large test index will be saved in train_val_test_idx_save_root.
+
+## Execute the following scripts to train DISGEN on bbbp:
 
 ```bash
-python disentgnn.py
+python disentgnn.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root} --criterion {criterion}
 ```
 
 ## Execute the following scripts to train on other datas (PROTEINS, GraphSST2 and NCI1):
 ```bash
-python disentgnn_proteins.py --dataset_name PROTEINS
+python disentgnn_proteins.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root} --criterion {criterion}
 ```
+Here {dataset} can be one of the following: PROTEINS, GraphSST2 and NCI1. {criterion} is the loss function used to 
+minimize the shared information between the hidden representation. The one used in paper is pair_loss_cos. It can also 
+be selected from one of the following: 'pair_loss_triplet', 'pair_loss', 'cos_loss', 'pearson_loss', 'none'. 'none' means
+no shared information loss is used. 
 
+{dataset_root} is the root to save the dataset.
+
+{train_val_test_idx_save_root} is the root to save the train, validation, small and large test index for the dataset.
