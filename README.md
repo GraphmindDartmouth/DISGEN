@@ -47,14 +47,14 @@ The train, validation, small and large test index will be saved in train_val_tes
 python disentgnn.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root} --criterion {criterion}
 ```
 
-## Execute the following scripts to train on other datas (PROTEINS, GraphSST2 and NCI1):
+## Execute the following scripts to train on other data (PROTEINS, GraphSST2 and NCI1):
 ```bash
 python disentgnn_proteins.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root} --criterion {criterion}
 ```
-Here {dataset} can be one of the following: PROTEINS, GraphSST2 and NCI1. {criterion} is the loss function used to 
-minimize the shared information between the hidden representation. The one used in paper is pair_loss_cos. It can also 
-be selected from one of the following: 'pair_loss_triplet', 'pair_loss', 'cos_loss', 'pearson_loss', 'none'. 'none' means
-no shared information loss is used. 
+
+Here {dataset} can be one of the following: PROTEINS, GraphSST2 and NCI1. 
+{criterion} is the loss function used to minimize the shared information between the hidden representation. The one used in the paper is pair_loss_cos. It can also 
+be selected from one of the following: 'pair_loss_triplet', 'pair_loss', 'cos_loss', 'pearson_loss', 'none'. 'none' means no shared information loss is used. 
 
 {dataset_root} is the root to save the dataset.
 
