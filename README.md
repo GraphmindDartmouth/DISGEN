@@ -1,5 +1,5 @@
 # DISGEN
-Codes for DISGEN
+Codes for Enhancing Size Generalization in Graph Neural Networks through Disentangled Representation Learning (DISGEN)
 
 ## Dependencies
 
