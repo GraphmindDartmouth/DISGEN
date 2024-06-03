@@ -36,7 +36,7 @@ cd DISGEN/src
 ```bash
 python gnnexp.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root}
 ```
-The data augmentation will generate augmented views of the original graph and save them in the dataset_root. 
+The data augmentation will generate augmented views of the original graph and save them in the {dataset_root}. 
 {dataset_root} is also the path to save the dataset.
 
 The train, validation, small and large test index will be saved in train_val_test_idx_save_root.
