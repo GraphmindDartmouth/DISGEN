@@ -64,3 +64,7 @@ python disentgnn.py --dataset_root DISGEN/dataset  --train_val_test_idx_save_roo
 Here {criterion} is the loss function used to learn the relative size information, inspired by contrastive learning. It can also 
 be selected from one of the following: 'pair_loss_triplet', 'pair_loss', 'cos_loss', 'pearson_loss', 'none'. 'none' means no relative size information loss is learned. 
 
+You can also use run.sh to run the above codes
+```
+bash run.sh
+```
