@@ -26,7 +26,7 @@ torch-sparse=0.6.17+pt20cu118
 torch-spline-conv=1.2.2+pt20cu118
 torchvision=0.15.2+cu118
 ```
-
+Experiments are carried out on a NVIDIA L40
 
 # Usage
 ## Clone the repository:
