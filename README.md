@@ -1,6 +1,13 @@
 # DISGEN
 Codes for Enhancing Size Generalization in Graph Neural Networks through Disentangled Representation Learning (DISGEN)
 
+
+# Introduction
+We propose a general Disentangled representation learning framework for size Generalization (DISGEN) of GNNs. First, we
+introduce new augmentation strategies to guide the model in learning relative size information. Second, we propose a 
+decoupling loss to minimize the shared information between the hidden representations optimized for size- and 
+task-related information, respectively.
+
 ## Dependencies
 
 ```bash
@@ -21,41 +28,39 @@ torchvision=0.15.2+cu118
 ```
 
 
-
 # Usage
 ## Clone the repository:
 
 ```bash
 git clone https://github.com/GraphmindDartmouth/DISGEN.git
+```
+## Create an environment using conda:
+
+```bash
+
+conda create -n disgen python=3.8
+conda activate disgen
+pip install -r requirements.txt
+```
+
+
+## Execute the following scripts to use a gnn explainer and generate augmented graphs:
+
+```bash
 cd DISGEN/src
+python gnnexp.py --dataset_root DISGEN/dataset  --train_val_test_idx_save_root DISGEN/saved_idx  --dataset bbbp
 ```
+The data augmentation will generate augmented views of the original graph and save them in the {dataset} folder. 
+{dataset} is also the path to save the dataset. {train_val_test_idx_save_root} is the path to save the train, validation, 
+small and large test index for the dataset, and it will be used in the model training. {saved_model} is the path to save the pre-trained gnn model.
 
-
-## Execute the following scripts to run data augmentation on different data:
+## Execute the following scripts to train DISGEN:
 
 ```bash
-python gnnexp.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root}
-```
-The data augmentation will generate augmented views of the original graph and save them in the {dataset_root}. 
-{dataset_root} is also the path to save the dataset.
-
-The train, validation, small and large test index will be saved in train_val_test_idx_save_root.
-
-## Execute the following scripts to train DISGEN on bbbp:
-
-```bash
-python disentgnn.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root} --criterion {criterion}
+cd DISGEN/src
+python disentgnn.py --dataset_root DISGEN/dataset  --train_val_test_idx_save_root DISGEN/saved_idx --saved_model DISGEN/saved_model --dataset bbbp --criterion pair_loss_cos
 ```
 
-## Execute the following scripts to train on other data (PROTEINS, GraphSST2 and NCI1):
-```bash
-python disentgnn_proteins.py --dataset {dataset} --dataset_root {dataset_root}  --train_val_test_idx_save_root {train_val_test_idx_save_root} --criterion {criterion}
-```
+Here {criterion} is the loss function used to learn the relative size information, inspired by contrastive learning. It can also 
+be selected from one of the following: 'pair_loss_triplet', 'pair_loss', 'cos_loss', 'pearson_loss', 'none'. 'none' means no relative size information loss is learned. 
 
-Here {dataset} can be one of the following: PROTEINS, GraphSST2 and NCI1. 
-{criterion} is the loss function used to minimize the shared information between the hidden representation. The one used in the paper is pair_loss_cos. It can also 
-be selected from one of the following: 'pair_loss_triplet', 'pair_loss', 'cos_loss', 'pearson_loss', 'none'. 'none' means no shared information loss is used. 
-
-{dataset_root} is the root to save the dataset.
-
-{train_val_test_idx_save_root} is the root to save the train, validation, small and large test index for the dataset.
