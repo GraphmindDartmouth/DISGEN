@@ -68,3 +68,10 @@ You can also use run.sh to run the above codes
 ```
 bash run.sh
 ```
+
+## Contact
+If you have any questions, suggestions, or bug reports, please contact
+```
+zheng.huang.gr@dartmouth.edu
+```
+
