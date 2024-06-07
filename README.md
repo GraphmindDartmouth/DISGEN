@@ -69,7 +69,7 @@ You can also use run.sh to run the above codes
 bash run.sh
 ```
 ## Logs
-You can find the reference logs under logs/ folder
+The reference logs are located in the logs/ folder.
 
 ## Contact
 If you have any questions, suggestions, or bug reports, please contact
