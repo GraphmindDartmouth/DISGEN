@@ -58,7 +58,7 @@ small and large test index for the dataset, and it will be used in the model tra
 
 ```bash
 cd DISGEN/src
-python disentgnn.py --dataset_root DISGEN/dataset  --train_val_test_idx_save_root DISGEN/saved_idx --saved_model DISGEN/saved_model --dataset bbbp --criterion pair_loss_cos
+python disentgnn.py --dataset_root DISGEN/dataset  --train_val_test_idx_save_root DISGEN/saved_idx --saved_model DISGEN/saved_model --dataset bbbp --criterion pair_loss_cos --beta1 0.5 --beta2 1 --beta3 5e4 --lr 0.001
 ```
 
 Here {criterion} is the loss function used to learn the relative size information, inspired by contrastive learning. It can also 
